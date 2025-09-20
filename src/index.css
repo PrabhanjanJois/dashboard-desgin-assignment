@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.active-tab {
+  position: relative;
+  background-color: #f3f3f3;
+}
+
+.active-tab-dark {
+  position: relative;
+  background-color: #323232;
+}
+
+.active-tab::before {
+  content: "";
+  position: absolute;
+  left: -0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background-color: #1c1c1c;
+  border-radius: 25%;
+}
+
+.active-tab-dark::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 16px;
+  background-color: #c6c7f8;
+  border-radius: 25%;
+}
+
+.recharts-area:focus,
+.recharts-tooltip-wrapper:focus,
+.recharts-cartesian-grid:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+/* global.css or RightSideBar.css */
+.minimal-scrollbar::-webkit-scrollbar {
+  width: 4px; /* very thin */
+}
+
+.minimal-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* no background */
+}
+
+.minimal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5); /* thin visible line */
+  border-radius: 2px;
+}
+
+.minimal-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Firefox */
+}
