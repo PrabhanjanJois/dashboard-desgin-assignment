@@ -12,7 +12,7 @@ const Orders = () => {
     isSortByStatus: false,
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 5;
+  const totalPages = 2;
 
   const handleSearchedOrder = (e) =>
     setState((prev) => ({ ...prev, searchedOrder: e.target.value }));

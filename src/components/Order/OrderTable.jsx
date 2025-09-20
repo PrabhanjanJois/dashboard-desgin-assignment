@@ -15,13 +15,14 @@ const OrderTable = ({
   searchedOrder,
   isSortByStatus,
   currentPage,
-  setCurrentPage = () => {},
+  // setCurrentPage = () => {},
 }) => {
   const theme = useSelector((state) => state.theme.theme);
   const [state, setState] = useState({
     checkedIDs: [],
     isAllChecked: false,
   });
+  // eslint-disable-next-line no-unused-vars
   const [ordersData, setOrdersData] = useState(ordersList);
   const [filteredOrders, setFilteredOrders] = useState([]);
   const itemsPerPage = 10;
@@ -55,7 +56,8 @@ const OrderTable = ({
 
     const updatedChecked = isAllSelected
       ? state?.checkedIDs?.filter((id) => !visibleIDs?.includes(id))
-      : Array.from(new Set([...state?.checkedIDs, ...visibleIDs]));
+      : // eslint-disable-next-line no-unsafe-optional-chaining
+        Array.from(new Set([...state?.checkedIDs, ...visibleIDs]));
 
     setState((prev) => ({
       ...prev,
@@ -66,7 +68,8 @@ const OrderTable = ({
   const handleToggleSingle = (id) => {
     const updatedChecked = state?.checkedIDs?.includes(id)
       ? state?.checkedIDs?.filter((item) => item !== id)
-      : [...state?.checkedIDs, id];
+      : // eslint-disable-next-line no-unsafe-optional-chaining
+        [...state?.checkedIDs, id];
 
     setState((prev) => ({
       ...prev,

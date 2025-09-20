@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import worldMap from "../../assets/world-map.svg";
 import worldMapDark from "../../assets/world-map-dark.svg";
-import { revenueLocations } from "../../utils/data";
+import { revenueLocations as initialRevenueLocations } from "../../utils/data";
 
-const RevenueLocation = () => {
+const RevenueLocation = ({ refreshKey }) => {
   const theme = useSelector((state) => state.theme.theme);
+  const [locations, setLocations] = useState(initialRevenueLocations);
+
+  useEffect(() => {
+    if (refreshKey === 0) return; // keep initial data on first load
+
+    // Randomize revenue for each location
+    const newLocations = initialRevenueLocations.map((item) => ({
+      ...item,
+      revenue: Math.floor(Math.random() * 100), // 0 - 99%
+    }));
+
+    setLocations(newLocations);
+  }, [refreshKey]);
 
   return (
     <div
@@ -17,16 +30,14 @@ const RevenueLocation = () => {
         Revenue by Location
       </h6>
       <div>
-        <div className="w-full  rounded-md mx-auto my-2">
-          <div className="w-full  rounded-md mx-auto my-2">
-            <img
-              src={theme ? worldMapDark : worldMap}
-              alt=""
-              className="w-full"
-            />
-          </div>
+        <div className="w-full rounded-md mx-auto my-2">
+          <img
+            src={theme ? worldMapDark : worldMap}
+            alt=""
+            className="w-full"
+          />
         </div>
-        {revenueLocations?.map((item, i) => (
+        {locations.map((item, i) => (
           <div key={i} className="pt-4 pb-1 relative">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
@@ -35,7 +46,7 @@ const RevenueLocation = () => {
                     theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                   }`}
                 >
-                  {item?.place}
+                  {item.place}
                 </p>
               </div>
               <p
@@ -43,7 +54,7 @@ const RevenueLocation = () => {
                   theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                 }`}
               >
-                {item?.revenue}K
+                {item.revenue}K
               </p>
             </div>
             <div className="absolute bottom-0 w-full">
@@ -54,7 +65,7 @@ const RevenueLocation = () => {
               >
                 <div
                   className="h-full rounded-full bg-[#A8C5DA]"
-                  style={{ width: `${item?.revenue}%` }}
+                  style={{ width: `${item.revenue}%` }}
                 ></div>
               </div>
             </div>
