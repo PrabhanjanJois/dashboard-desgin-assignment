@@ -8,11 +8,14 @@ import {
   PiSun,
   PiClockCounterClockwiseLight,
   PiBellLight,
+  PiStarFill,
 } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
 import DashboardRouter from "./DashboardRouter";
 import userProfile from "../../assets/userProfile.png";
-import { Tooltip } from "antd";
+import { Badge, Tooltip } from "antd";
+import { triggerRefresh } from "../../store/refreshSlice";
+import PageStar from "./PageStar";
 
 const Header = ({ onToggleLeft, onToggleRight }) => {
   const theme = useSelector((state) => state.theme.theme);
@@ -63,15 +66,9 @@ const Header = ({ onToggleLeft, onToggleRight }) => {
             }`}
           />
         </Tooltip>
-        <PiStarLight
-          size={24}
-          strokeWidth={1.5}
-          className={`hidden md:flex p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
-            theme
-              ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
-              : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
-          }`}
-        />
+
+        <PageStar />
+
         <DashboardRouter />
       </div>
 
@@ -105,34 +102,44 @@ const Header = ({ onToggleLeft, onToggleRight }) => {
             ⌘/
           </p>
         </div>
-        <PiSun
-          onClick={() => dispatch(toggleTheme())}
-          size={24}
-          strokeWidth={1.5}
-          className={`p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
-            theme
-              ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
-              : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
-          }`}
-        />
-        <PiClockCounterClockwiseLight
-          size={24}
-          strokeWidth={1.5}
-          className={`hidden md:flex p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
-            theme
-              ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
-              : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
-          }`}
-        />
+        <Tooltip title="Toggle Theme" placement="bottom">
+          <PiSun
+            onClick={() => dispatch(toggleTheme())}
+            size={24}
+            strokeWidth={1.5}
+            className={`p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
+              theme
+                ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
+                : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
+            }`}
+          />
+        </Tooltip>
+        <Tooltip title="Refresh Data" placement="bottom">
+          <PiClockCounterClockwiseLight
+            size={24}
+            strokeWidth={1.5}
+            onClick={() => dispatch(triggerRefresh())}
+            className={`hidden md:flex p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
+              theme
+                ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
+                : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
+            }`}
+          />
+        </Tooltip>
+        {/* <Badge dot color="#FF0000" offset={[-5, 5]} className="hidden md:flex"> */}
         <PiBellLight
           size={24}
           strokeWidth={1.5}
-          className={`hidden md:flex p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
+          className={`p-0.5 rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out 
+          ${
             theme
               ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
               : "text-[#1C1C1C] hover:bg-[#1C1C1C0D]"
-          }`}
+          } 
+          hidden md:flex
+        `}
         />
+        {/* </Badge> */}
         <Tooltip title="Toggle Right Sidebar" placement="bottom">
           <PiSidebarLight
             size={24}

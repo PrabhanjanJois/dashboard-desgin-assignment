@@ -52,11 +52,6 @@ const UserDropdown = ({ userProfile, theme }) => {
       menu={{
         items,
         className: "rounded-md overflow-hidden",
-        itemClassName: `
-          transition-all duration-300 ease-in-out 
-          hover:translate-x-1
-         "text-black hover:bg-gray-100"
-        `,
       }}
       trigger={["hover"]}
       placement="bottomLeft"

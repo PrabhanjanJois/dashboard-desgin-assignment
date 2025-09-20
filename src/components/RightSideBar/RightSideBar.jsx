@@ -14,17 +14,13 @@ const RightSideBar = () => {
         splitterSize={4} // thin line
         splitterClassName="bg-gray-300 dark:bg-gray-600 cursor-row-resize"
       >
-        <Splitter.Panel
-          className="overflow-hidden"
-          defaultSize="27.5%"
-          min={150}
-        >
+        <Splitter.Panel className="overflow-hidden" defaultSize="25%" min={150}>
           <div className="h-full overflow-auto minimal-scrollbar">
             <Notifications />
           </div>
         </Splitter.Panel>
 
-        <Splitter.Panel className="overflow-hidden" defaultSize="30%" min={150}>
+        <Splitter.Panel className="overflow-hidden" defaultSize="31%" min={150}>
           <div className="h-full overflow-auto minimal-scrollbar">
             <Activities />
           </div>

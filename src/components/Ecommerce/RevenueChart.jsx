@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { GoDotFill } from "react-icons/go";
 import {
@@ -11,12 +11,13 @@ import {
   YAxis,
 } from "recharts";
 import moment from "moment";
-import { LineData } from "../../utils/data";
+import { LineData as initialLineData } from "../../utils/data";
 
-const RevenueChart = () => {
+const RevenueChart = ({ refreshKey }) => {
   const theme = useSelector((state) => state.theme.theme);
 
-  const revenueData = [
+  const [lineData, setLineData] = useState(initialLineData);
+  const [revenueData, setRevenueData] = useState([
     {
       label: "Current Week",
       value: "$58,211",
@@ -29,7 +30,29 @@ const RevenueChart = () => {
       color: "text-[#A8C5DA]",
       darkColor: "text-[#A8C5DA]",
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    if (refreshKey === 0) return; // keep initial data on first load
+
+    // Randomize revenue numbers
+    const newRevenue = revenueData.map((d) => ({
+      ...d,
+      value: `$${(Math.floor(Math.random() * 90000) + 10000).toLocaleString()}`,
+    }));
+
+    // Randomize line chart data
+    const newLineData = initialLineData.map((item) => ({
+      ...item,
+      currentActual: Math.floor(Math.random() * 30),
+      currentPredicted: Math.floor(Math.random() * 30),
+      previous: Math.floor(Math.random() * 30),
+    }));
+
+    setRevenueData(newRevenue);
+    setLineData(newLineData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshKey]);
 
   return (
     <div
@@ -53,7 +76,7 @@ const RevenueChart = () => {
           </span>{" "}
         </h6>
         <div className="block md:flex items-center gap-4 mt-1 md:m-0">
-          {revenueData?.map((d, i) => (
+          {revenueData.map((d, i) => (
             <div key={i} className="flex items-center ">
               <GoDotFill
                 size={14}
@@ -65,7 +88,7 @@ const RevenueChart = () => {
                   theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                 }`}
               >
-                {d?.label} <b className="p-1">{d?.value}</b>
+                {d.label} <b className="p-1">{d.value}</b>
               </p>
             </div>
           ))}
@@ -74,7 +97,7 @@ const RevenueChart = () => {
 
       <div className="h-[90%] w-full mt-4">
         <ResponsiveContainer width="100%" height={232}>
-          <LineChart width={"100%"} height={232} data={LineData}>
+          <LineChart width={"100%"} height={232} data={lineData}>
             <CartesianGrid
               stroke={`${theme ? "#FFFFFF66" : "#1C1C1C66"}`}
               vertical={false}
