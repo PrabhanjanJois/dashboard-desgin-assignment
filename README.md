@@ -72,7 +72,7 @@ npm run dev
 ### Step 4: Run tests with coverage
 
 ```bash
-npm run test -- --coverage
+npm run test:coverage
 ```
 
 ---
