@@ -1,12 +1,56 @@
-# React + Vite
+# Dashboard Design Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Author:** Jois Prabhanjan
 
-Currently, two official plugins are available:
+I had a great time completing this challenge and I hope to be part of the further rounds. This project is built using **React.js**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This is a dashboard design assignment built using **React**. The project demonstrates:
+
+- Responsive dashboard layout
+- Left and right sidebars
+- Interactive components with dynamic data
+- Dark and light theme support
+- Redux for state management
+- Ant Design and React Icons for UI elements
+
+I have followed the Figma design closely and implemented components such as:
+
+- **RightBar**
+- **LeftBar**
+- **Orders Page**
+- **Default Landing Page**
+
+---
+
+## Additional Features Implemented
+
+- Storing **Favorites**
+- Refreshing data on click
+- Toggle of **Left and Right sidebars**
+- **Splitters** and **draggable containers** in RightBar
+- "Coming Soon" page with minimal animations
+
+---
+
+## Tech Stack
+
+- **React.js** – Main frontend framework
+- **Recharts** – For charts and data visualization
+- **Ant Design (antd)** – UI components
+- **Tailwind CSS** – Utility-first styling
+- **Redux Toolkit** – State management
+
+---
+
+## Installation and Running the Project
+
+### Step 1: Clone the repository
+
+```bash
+git clone <your-repo-link>
+cd dashboard-desgin-assignment
+```
