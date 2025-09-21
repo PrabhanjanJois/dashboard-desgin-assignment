@@ -54,7 +54,7 @@ I have followed the Figma design closely and implemented components such as:
 
 ```bash
 git clone <https://github.com/PrabhanjanJois/dashboard-design-assignment.git>
-cd dashboard-desgin-assignment
+cd dashboard-design-assignment
 ```
 
 ### Step 2: Install dependencies
@@ -72,7 +72,7 @@ npm run dev
 ### Step 4: Run tests with coverage
 
 ```bash
-npm run test -- --coverage
+npm run test:coverage
 ```
 
 ---
