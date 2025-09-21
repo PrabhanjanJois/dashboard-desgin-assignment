@@ -1,34 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { PiStarLight, PiStarFill } from "react-icons/pi";
 import { useLocation } from "react-router-dom";
 import { Tooltip } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleStar } from "../../store/starredPagesSlice";
 
 const PageStar = () => {
   const location = useLocation();
-  const [starredPages, setStarredPages] = useState({});
+  const dispatch = useDispatch();
+  const starredPages = useSelector((state) => state.starredPages);
 
   const currentPage = location.pathname;
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("starredPages") || "{}");
-    setStarredPages(stored);
-  }, []);
-
-  const toggleStar = () => {
-    const updated = {
-      ...starredPages,
-      [currentPage]: !starredPages[currentPage],
-    };
-    setStarredPages(updated);
-    localStorage.setItem("starredPages", JSON.stringify(updated));
-  };
-
   const isFilled = starredPages[currentPage];
+
+  const handleToggle = () => {
+    dispatch(toggleStar(currentPage));
+  };
 
   return (
     <Tooltip title={isFilled ? "Unfavorite" : "Favorite"} placement="left">
       <div
-        onClick={toggleStar}
+        onClick={handleToggle}
         className="cursor-pointer inline-block"
         data-testid="page-star"
       >

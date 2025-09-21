@@ -91,4 +91,4 @@ npm run test:coverage
   [Live Demo Link](https://assignment-ui-challenge.netlify.app/)
 
 - Watch the video demo here:  
-  [Live Demo Link](https://assignment-ui-challenge.netlify.app/)
+  [Live Demo Link](https://drive.google.com/file/d/1JtzUSyrLedCh-7k2CPW_uXOquJfoPzHx/view?usp=sharing)
