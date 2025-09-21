@@ -16,6 +16,7 @@ This is a dashboard design assignment built using **React**. The project demonst
 - Dark and light theme support
 - Redux for state management
 - Ant Design and React Icons for UI elements
+- Unit and integration tests using React Testing Library, Jest, and Vitest
 
 I have followed the Figma design closely and implemented components such as:
 
@@ -43,6 +44,7 @@ I have followed the Figma design closely and implemented components such as:
 - **Ant Design (antd)** – UI components
 - **Tailwind CSS** – Utility-first styling
 - **Redux Toolkit** – State management
+- **Vitest with Jest** – Test cases.
 
 ---
 
@@ -51,6 +53,42 @@ I have followed the Figma design closely and implemented components such as:
 ### Step 1: Clone the repository
 
 ```bash
-git clone <your-repo-link>
+git clone <https://github.com/PrabhanjanJois/dashboard-design-assignment.git>
 cd dashboard-desgin-assignment
 ```
+
+### Step 2: Install dependencies
+
+```bash
+npm install
+```
+
+### Step 3: Run the project locally
+
+```bash
+npm run dev
+```
+
+### Step 4: Run tests with coverage
+
+```bash
+npm run test -- --coverage
+```
+
+---
+
+## Testing And Performance
+
+- **React Testing Library, Jest,** and **Vitest** for writing unit and integration tests
+- Overall test coverage ratio: **above 85%**
+- **Lighthouse Performance Scores:** Desktop: **96**, Mobile: **83**
+
+---
+
+## Deployment And Demo
+
+- This project is deployed on **Netlify**:  
+  [Live Demo Link](https://assignment-ui-challenge.netlify.app/)
+
+- Watch the video demo here:  
+  [Live Demo Link](https://assignment-ui-challenge.netlify.app/)
