@@ -81,7 +81,7 @@ npm run test:coverage
 
 - **React Testing Library, Jest,** and **Vitest** for writing unit and integration tests
 - Overall test coverage ratio: **above 85%**
-- **Lighthouse Performance Scores:** Desktop: **96**, Mobile: **83**
+- **Lighthouse Performance Scores:** Desktop: **96**, Mobile: **77**
 
 ---
 
