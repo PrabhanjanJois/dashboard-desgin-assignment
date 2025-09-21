@@ -6,7 +6,6 @@ import { describe, it, expect, vi } from "vitest";
 import Metrics from "../Metrics";
 import { store } from "../../../store/store";
 
-// Mock useNavigate once at the top
 const mockNavigate = vi.fn();
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
@@ -16,7 +15,6 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-// Mock ResizeObserver globally
 globalThis.ResizeObserver = class {
   observe() {}
   unobserve() {}

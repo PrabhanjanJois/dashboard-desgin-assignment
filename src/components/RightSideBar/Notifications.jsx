@@ -18,6 +18,7 @@ const Notifications = () => {
         <div
           className="grid grid-cols-6 gap-2 mb-4 last:mb-0 items-start"
           key={index}
+          data-testid={`notification-${index}`}
         >
           <figure
             className={`w-[24px] h-[24px] flex items-center justify-center p-[4px] rounded-md ${note?.color}`}

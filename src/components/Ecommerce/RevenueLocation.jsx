@@ -9,9 +9,8 @@ const RevenueLocation = ({ refreshKey }) => {
   const [locations, setLocations] = useState(initialRevenueLocations);
 
   useEffect(() => {
-    if (refreshKey === 0) return; // keep initial data on first load
+    if (refreshKey === 0) return;
 
-    // Randomize revenue for each location
     const newLocations = initialRevenueLocations.map((item) => ({
       ...item,
       revenue: Math.floor(Math.random() * 100), // 0 - 99%
@@ -25,6 +24,7 @@ const RevenueLocation = ({ refreshKey }) => {
       className={`col-span-full md:col-span-1 ${
         theme ? "bg-[#FFFFFF1A]" : "bg-[#F7F9FB]"
       } rounded-2xl p-5 h-full animate-fade`}
+      data-testid="location-progress"
     >
       <h6 className={`text-sm font-semibold ${theme && "text-[#FFFFFF]"}`}>
         Revenue by Location
@@ -33,7 +33,7 @@ const RevenueLocation = ({ refreshKey }) => {
         <div className="w-full rounded-md mx-auto my-2">
           <img
             src={theme ? worldMapDark : worldMap}
-            alt=""
+            alt="Revenue by Location"
             className="w-full"
           />
         </div>

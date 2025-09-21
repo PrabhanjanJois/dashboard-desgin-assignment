@@ -63,6 +63,7 @@ const TopSellingProducts = () => {
                   className={`pr-6 py-3 text-start font-normal text-xs whitespace-nowrap ${
                     theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                   }`}
+                  data-testid={`name-${index}`}
                 >
                   {item.name}
                 </td>
@@ -70,6 +71,7 @@ const TopSellingProducts = () => {
                   className={`pr-6 py-3 text-start font-normal text-xs whitespace-nowrap ${
                     theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                   }`}
+                  data-testid={`price-${index}`}
                 >
                   {item.price}
                 </td>
@@ -77,6 +79,7 @@ const TopSellingProducts = () => {
                   className={`pr-6 py-3 text-start font-normal text-xs whitespace-nowrap ${
                     theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                   }`}
+                  data-testid={`quantity-${index}`}
                 >
                   {item.quantity}
                 </td>
@@ -84,6 +87,7 @@ const TopSellingProducts = () => {
                   className={`pr-6 py-3 text-start font-normal text-xs whitespace-nowrap ${
                     theme ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
                   }`}
+                  data-testid={`amount-${index}`}
                 >
                   {item.amount}
                 </td>

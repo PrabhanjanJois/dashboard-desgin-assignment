@@ -18,6 +18,7 @@ const Contacts = () => {
         <div
           className="grid grid-cols-6 gap-2 mb-4 last:mb-0 items-center"
           key={index}
+          data-testid={`contact-${index}`}
         >
           <figure className="col-span-1 flex items-center justify-center relative w-fit">
             <img

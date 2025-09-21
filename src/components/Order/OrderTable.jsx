@@ -247,6 +247,7 @@ const OrderTable = ({
                   {isChecked ? (
                     <MdCheckBox
                       size={14}
+                      data-testid={`checkbox-${order.id}`}
                       className={`${
                         theme ? "text-[#C6C7F8]" : "text-[#1C1C1C]"
                       } cursor-pointer`}
@@ -255,6 +256,7 @@ const OrderTable = ({
                   ) : (
                     <PiSquareLight
                       size={14}
+                      data-testid={`checkbox-${order.id}`}
                       className={`${
                         theme ? "text-[#FFFFFF66]" : "text-[#1C1C1C33]"
                       } cursor-pointer`}
@@ -298,6 +300,7 @@ const OrderTable = ({
                       {order?.address}
                     </p>
                     <PiClipboardText
+                      data-testid={`copy-address-${order.id}`}
                       size={24}
                       className={`p-1 invisible group-hover:visible rounded-md cursor-pointer transition-transform hover:scale-105 duration-500 ease-in-out ${
                         theme

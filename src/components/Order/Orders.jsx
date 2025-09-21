@@ -42,6 +42,13 @@ const Orders = () => {
               key={idx}
               size={24}
               strokeWidth={1.5}
+              data-testid={
+                idx === 0
+                  ? "add-order-btn"
+                  : idx === 1
+                  ? "filter-btn"
+                  : "sort-btn"
+              }
               className={`${
                 theme
                   ? "text-[#FFFFFF] hover:bg-[#FFFFFF1A]"
@@ -67,6 +74,7 @@ const Orders = () => {
             type="text"
             value={state.searchedOrder}
             placeholder="Search"
+            data-testid="search-input"
             onChange={handleSearchedOrder}
             className={`border-none outline-none bg-transparent w-[100px] text-xs
               ${
@@ -91,6 +99,7 @@ const Orders = () => {
         <LiaAngleLeftSolid
           size={24}
           strokeWidth={1.5}
+          data-testid="prev-page-btn"
           className={`${
             currentPage === 1
               ? "cursor-not-allowed opacity-50"
@@ -104,6 +113,7 @@ const Orders = () => {
         />
         {[...Array(totalPages)].map((_, i) => (
           <p
+            data-testid={`page-btn-${i + 1}`}
             key={i}
             className={`cursor-pointer text-sm font-normal w-[24px] h-[24px] rounded-md flex items-center justify-center transition-transform hover:scale-105 duration-500 ease-in-out ${
               currentPage === i + 1
@@ -124,6 +134,7 @@ const Orders = () => {
         <LiaAngleRightSolid
           size={24}
           strokeWidth={1.5}
+          data-testid="next-page-btn"
           className={`${
             currentPage === totalPages
               ? "cursor-not-allowed opacity-50"

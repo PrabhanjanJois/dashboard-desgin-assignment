@@ -14,6 +14,7 @@ const DashboardRouter = () => {
     <>
       <div className="hidden md:flex items-center gap-3">
         <p
+          // data-testid="dashboard-btn"
           onClick={() => navigate("/")}
           className={`cursor-pointer rounded-md p-0.5 text-sm ${
             theme
@@ -45,6 +46,7 @@ const DashboardRouter = () => {
           className={`cursor-pointer text-xs rounded-full px-2 py-1 ${
             currentPath[0] === undefined ? "bg-[#a8c5da]" : "bg-[#cfdfea]"
           }`}
+          data-testid="dashboard-btn"
           onClick={() => navigate("/")}
         >
           Dashboards
@@ -53,6 +55,7 @@ const DashboardRouter = () => {
           className={`cursor-pointer text-xs rounded-full px-2 py-1 ${
             currentPath[0] === "orders" ? "bg-[#a8c5da]" : "bg-[#cfdfea]"
           }`}
+          data-testid="orders-btn"
           onClick={() => navigate("/orders")}
         >
           Order List

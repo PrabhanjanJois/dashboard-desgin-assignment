@@ -56,7 +56,10 @@ const UserDropdown = ({ userProfile, theme }) => {
       trigger={["hover"]}
       placement="bottomLeft"
     >
-      <div className="flex items-center cursor-pointer transition-all duration-300 ease-in-out hover:opacity-80">
+      <div
+        data-testid="user-dropdown"
+        className="flex items-center cursor-pointer transition-all duration-300 ease-in-out hover:opacity-80"
+      >
         <img
           src={userProfile}
           alt="user profile"

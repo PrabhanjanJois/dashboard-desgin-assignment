@@ -4,12 +4,11 @@ import { useLocation } from "react-router-dom";
 import { Tooltip } from "antd";
 
 const PageStar = () => {
-  const location = useLocation(); // current URL path
-  const [starredPages, setStarredPages] = useState({}); // { '/orders': true, '/dashboard': false }
+  const location = useLocation();
+  const [starredPages, setStarredPages] = useState({});
 
   const currentPage = location.pathname;
 
-  // Initialize star state from localStorage (optional persistence)
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("starredPages") || "{}");
     setStarredPages(stored);
@@ -21,14 +20,18 @@ const PageStar = () => {
       [currentPage]: !starredPages[currentPage],
     };
     setStarredPages(updated);
-    localStorage.setItem("starredPages", JSON.stringify(updated)); // persist
+    localStorage.setItem("starredPages", JSON.stringify(updated));
   };
 
   const isFilled = starredPages[currentPage];
 
   return (
     <Tooltip title={isFilled ? "Unfavorite" : "Favorite"} placement="left">
-      <div onClick={toggleStar} className="cursor-pointer inline-block">
+      <div
+        onClick={toggleStar}
+        className="cursor-pointer inline-block"
+        data-testid="page-star"
+      >
         {isFilled ? (
           <PiStarFill
             size={24}

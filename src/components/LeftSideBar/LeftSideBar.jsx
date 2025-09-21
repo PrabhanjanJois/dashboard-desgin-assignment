@@ -110,6 +110,7 @@ const LeftSideBar = () => {
           {tabs?.map((d, i) => (
             <p
               key={i}
+              data-testid={`tab-${d.name}`}
               className={`flex justify-center text-sm font-normal ${d.color} cursor-pointer hover:bg-[#1C1C1C0D] rounded-lg p-1 px-2`}
             >
               {d.name}
@@ -147,6 +148,7 @@ const LeftSideBar = () => {
           {dashboards?.map((d, i) => (
             <div
               key={i}
+              data-testid={`dashboard-${d.label}`}
               onClick={() => {
                 setActiveTab(d.label);
                 navigate(`/${d.path}`);
@@ -190,7 +192,12 @@ const LeftSideBar = () => {
         </h6>
         <div>
           {pages?.children?.map((page, index) => (
-            <MenuItem key={index} page={page} index={index} />
+            <MenuItem
+              key={index}
+              page={page}
+              index={index}
+              data-testid={`page-${page.name}`}
+            />
           ))}
         </div>
       </div>

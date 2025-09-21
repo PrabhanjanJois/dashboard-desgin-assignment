@@ -17,7 +17,7 @@ const MenuItem = ({ page, index }) => {
   };
 
   return (
-    <div key={index} className="mb-1">
+    <div key={index} className="mb-1" data-testid={`menuitem-${page.name}`}>
       <div
         className={`${
           theme ? "hover:bg-[#FFFFFF1A]" : "hover:bg-[#1C1C1C0D]"

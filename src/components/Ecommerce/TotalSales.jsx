@@ -86,6 +86,7 @@ const TotalSales = () => {
                 size={14}
                 strokeWidth={1.5}
                 style={{ color: theme ? item?.darkColor : item?.color }}
+                data-testid={`dot-${index}`}
               />
               <p
                 className={`text-xs font-normal ${

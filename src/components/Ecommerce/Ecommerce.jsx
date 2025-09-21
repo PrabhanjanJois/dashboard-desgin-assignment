@@ -2,14 +2,12 @@ import React, { Suspense, memo } from "react";
 import { useSelector } from "react-redux";
 import { Skeleton } from "antd";
 
-// Lazy load heavy components
 const Metrics = React.lazy(() => import("./Metrics"));
 const RevenueChart = React.lazy(() => import("./RevenueChart"));
 const RevenueLocation = React.lazy(() => import("./RevenueLocation"));
 const TopSellingProducts = React.lazy(() => import("./TopSellingProducts"));
 const TotalSales = React.lazy(() => import("./TotalSales"));
 
-// Antd Skeleton for charts
 const ChartSkeleton = () => (
   <div className="grid gap-5 grid-cols-1 md:grid-cols-4">
     <Skeleton.Input
@@ -22,7 +20,6 @@ const ChartSkeleton = () => (
   </div>
 );
 
-// Antd Skeleton for products
 const ProductSkeleton = () => (
   <div className="grid gap-5 grid-cols-1 md:grid-cols-4">
     <Skeleton.Input active size="large" className="h-56 rounded-2xl" block />

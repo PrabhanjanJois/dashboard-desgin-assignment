@@ -59,3 +59,23 @@
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Firefox */
 }
+
+/* Default (light theme) */
+.custom-splitter
+  .ant-splitter-resize-trigger
+  .ant-splitter
+  > .ant-splitter-bar
+  .ant-splitter-bar-dragger {
+  background-color: #ffffff !important; /* Tailwind gray-300 */
+  cursor: row-resize;
+}
+
+/* Dark theme */
+.custom-splitter.dark
+  .ant-splitter-resize-trigger
+  .ant-splitter
+  > .ant-splitter-bar
+  .ant-splitter-bar-dragger {
+  background-color: #4b5563; /* Tailwind gray-600 */
+  cursor: row-resize;
+}

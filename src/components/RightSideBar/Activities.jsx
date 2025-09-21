@@ -18,6 +18,7 @@ const Activities = () => {
         <div
           className="grid grid-cols-6 gap-2 mb-4 last:mb-0 items-start"
           key={index}
+          data-testid={`activity-${index}`}
         >
           <figure className="col-span-1 flex items-center justify-center relative w-fit">
             <img
