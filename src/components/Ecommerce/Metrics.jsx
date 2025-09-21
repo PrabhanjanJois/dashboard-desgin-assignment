@@ -24,11 +24,9 @@ const Metrics = ({ refreshKey }) => {
   const [statusData, setStatusData] = useState(initialStatusCard);
   const [barData, setBarData] = useState(initialBarData);
 
-  // 🔄 Whenever refreshKey changes, randomize the data
   useEffect(() => {
-    if (refreshKey === 0) return; // keep initial data on first load
+    if (refreshKey === 0) return;
 
-    // Generate fake refreshed data
     const newStatus = initialStatusCard.map((card) => ({
       ...card,
       value: Math.floor(Math.random() * 5000 + 100),

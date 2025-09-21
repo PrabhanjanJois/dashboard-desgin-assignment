@@ -56,6 +56,7 @@ const Header = ({ onToggleLeft, onToggleRight }) => {
         </figure>
         <Tooltip title="Toggle Left Sidebar" placement="bottom">
           <PiSidebarLight
+            data-testid="left-toggle"
             size={24}
             strokeWidth={1.5}
             onClick={onToggleLeft}
@@ -104,6 +105,7 @@ const Header = ({ onToggleLeft, onToggleRight }) => {
         </div>
         <Tooltip title="Toggle Theme" placement="bottom">
           <PiSun
+            data-testid="theme-toggle"
             onClick={() => dispatch(toggleTheme())}
             size={24}
             strokeWidth={1.5}
@@ -142,6 +144,7 @@ const Header = ({ onToggleLeft, onToggleRight }) => {
         {/* </Badge> */}
         <Tooltip title="Toggle Right Sidebar" placement="bottom">
           <PiSidebarLight
+            data-testid="right-toggle"
             size={24}
             strokeWidth={1.5}
             onClick={onToggleRight}

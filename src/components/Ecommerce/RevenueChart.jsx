@@ -33,15 +33,13 @@ const RevenueChart = ({ refreshKey }) => {
   ]);
 
   useEffect(() => {
-    if (refreshKey === 0) return; // keep initial data on first load
+    if (refreshKey === 0) return;
 
-    // Randomize revenue numbers
     const newRevenue = revenueData.map((d) => ({
       ...d,
       value: `$${(Math.floor(Math.random() * 90000) + 10000).toLocaleString()}`,
     }));
 
-    // Randomize line chart data
     const newLineData = initialLineData.map((item) => ({
       ...item,
       currentActual: Math.floor(Math.random() * 30),
@@ -56,6 +54,8 @@ const RevenueChart = ({ refreshKey }) => {
 
   return (
     <div
+      data-testid="revenue-chart-container"
+      data-theme={theme ? "dark" : "light"}
       className={`col-span-full md:col-span-3 ${
         theme ? "bg-[#FFFFFF1A]" : "bg-[#F7F9FB]"
       } rounded-2xl p-6 animate-fade`}

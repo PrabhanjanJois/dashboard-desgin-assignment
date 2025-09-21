@@ -8,12 +8,7 @@ import { useState } from "react";
 
 const Layout = () => {
   const theme = useSelector((state) => state.theme.theme);
-  // const location = useLocation();
-  // const currentPath = location.pathname
-  //   ?.split("/")
-  //   .filter((path) => path !== "");
 
-  // 🔑 states to toggle sidebars
   const [showLeft, setShowLeft] = useState(true);
   const [showRight, setShowRight] = useState(true);
 
@@ -31,10 +26,10 @@ const Layout = () => {
     col-span-12
     ${
       showLeft && showRight
-        ? "xl:col-span-8" // Both sidebars visible
+        ? "xl:col-span-8"
         : showLeft || showRight
-        ? "xl:col-span-10" // Only one sidebar visible
-        : "xl:col-span-12" // Both sidebars hidden
+        ? "xl:col-span-10"
+        : "xl:col-span-12"
     }
     border-x-[1px] ${theme ? "border-x-[#FFFFFF33]" : "border-x-[#1C1C1C1A]"}
     min-h-screen
